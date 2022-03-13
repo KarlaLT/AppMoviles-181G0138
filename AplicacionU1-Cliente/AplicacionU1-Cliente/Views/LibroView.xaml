@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AplicacionU1_Cliente.Views.LibroView"
+             xmlns:vm="clr-namespace:AplicacionU1_Cliente.ViewModel"
+               x:DataType="vm:RecomendacionesViewModel" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <ScrollView>
+        <Grid>
+        <StackLayout BackgroundColor="#FFF8DC">
+            
+                <StackLayout BackgroundColor="#48D1CC" Orientation="Horizontal" >
+            
+                    <Image Margin="20,0,0,0" Source="regresar.png" HeightRequest="50" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CancelarCommand}" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <StackLayout >
+                <Label  Grid.Column="1" TextColor="White" HorizontalTextAlignment="Center" Text="{Binding Recomendacion.TituloLibro}" FontSize="30" 
+                        Padding="20,20,0,0" VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                <StackLayout  Padding="00,5,0,10" HorizontalOptions="CenterAndExpand" Grid.Row="1" Orientation="Horizontal">
+                            <Label VerticalOptions="Center" FontSize="25" TextColor="DarkSlateGray" Text="Autor: "></Label>
+                            <Label Text="{Binding Recomendacion.Autor}" VerticalOptions="Center" FontSize="25" TextColor="DarkSlateGray"></Label>
+                </StackLayout>
+                    </StackLayout>
+
+                </StackLayout>
+            
+            
+                <StackLayout Margin="20,10">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label Text="{Binding Recomendacion.Puntuacion}" FontSize="60" FontAttributes="Bold" TextColor="Gold"></Label>
+                    <Image Source="estrella.png" HeightRequest="40"></Image>
+                </StackLayout>
+            </StackLayout>
+            <Grid>
+                <Image Source="fondo.png" Aspect="Fill" HeightRequest="400"></Image>
+                <Label FontSize="19" HorizontalTextAlignment="Center" HorizontalOptions="Center" 
+                       VerticalOptions="Center" Margin="50,0" FontAttributes="Italic" Text="{Binding Recomendacion.Opinion}"></Label>
+            </Grid>
+        </StackLayout>
+
+            <StackLayout  HorizontalOptions="Fill" VerticalOptions="End">
+                <Button Command="{Binding VerEditarCommand}" CommandParameter="{Binding .}" HorizontalOptions="End" VerticalOptions="End" Text="&#128221;" FontSize="50" TextColor="White" BackgroundColor="#3CB371"
+                    CornerRadius="100" WidthRequest="80" HeightRequest="80" Margin="10,0"></Button>
+                <Button Command="{Binding EliminarCommand}" CommandParameter="{Binding .}" HorizontalOptions="End" VerticalOptions="End" Text="&#128465;" FontSize="50" TextColor="White" BackgroundColor="#B22222"
+                    CornerRadius="100" WidthRequest="80" HeightRequest="80" Margin="10,0,10,10"></Button>
+
+                <Label Text="{Binding Recomendacion.Genero}" FontSize="17" Padding="0,5" HorizontalTextAlignment="Center" VerticalOptions="EndAndExpand" HorizontalOptions="Fill" BackgroundColor="#FFD700"></Label>
+            </StackLayout>
+        </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
