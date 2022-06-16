@@ -40,7 +40,17 @@
         <Label>Fecha fin de la oferta:</Label>
         <DatePicker IsTodayHighlighted="True"  SelectedDate="{Binding Cupon.FechaFin}" Padding="3" Margin="10,2"></DatePicker>
         <Label>Categoría:</Label>
-        <TextBox Text="{Binding Cupon.Categoria}"></TextBox>
+        <ComboBox Text="{Binding Cupon.Categoria}" Margin="5,3">
+                <ComboBoxItem>
+                    <TextBlock>Alimentos</TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock>Vestimenta</TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock>Entretenimiento</TextBlock>
+                </ComboBoxItem>
+        </ComboBox>
 
         <WrapPanel HorizontalAlignment="Center">
             <Button Command="{Binding AgregarCommand}">Guardar</Button>

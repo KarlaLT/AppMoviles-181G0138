@@ -89,6 +89,10 @@ namespace AplicacionU2_ClienteWPF.ViewModels
             var vestimenta = await Client.Get("vestimenta");
             var entretenimiento = await Client.Get("entretenimiento");
 
+            alimentos = alimentos.OrderByDescending(x => x.Porciento).ThenBy(x=>x.FechaFin);
+            vestimenta = vestimenta.OrderByDescending(x => x.Porciento).ThenBy(x => x.FechaFin);
+            entretenimiento = entretenimiento.OrderByDescending(x => x.Porciento).ThenBy(x => x.FechaFin);
+
             foreach (var c in alimentos)
             {
                 CuponesAlimentos.Add(c);

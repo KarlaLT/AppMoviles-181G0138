@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AplicacionU2_ClienteWPF.Views"
         xmlns:vm="clr-namespace:AplicacionU2_ClienteWPF.ViewModels"
         mc:Ignorable="d"
-       Title="MyCuppon Management" Height="650" Width="800">
+       Title="MyCuppon Management" Height="670" Width="800">
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="TextAlignment" Value="Center"/>
