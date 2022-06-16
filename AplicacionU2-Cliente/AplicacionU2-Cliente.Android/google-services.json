@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "190754971851",
+    "project_id": "cupones181g0138",
+    "storage_bucket": "cupones181g0138.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190754971851:android:3ad21aa76ed221258e7b4e",
+        "android_client_info": {
+          "package_name": "com.itesrc.cupones181g0138"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190754971851-65atvt69342vpp56locd2la57d7scc4p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDs5m5CTl-1J2-LlQwe510c5-SUi_Ql3lU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190754971851-65atvt69342vpp56locd2la57d7scc4p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

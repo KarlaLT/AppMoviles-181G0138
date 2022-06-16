@@ -7,7 +7,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AplicacionU1-API", "Aplicac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplicacionU1-Cliente.Android", "AplicacionU1-Cliente\AplicacionU1-Cliente.Android\AplicacionU1-Cliente.Android.csproj", "{50CE7C45-2677-4B46-A07C-4F50A5722472}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplicacionU1-Cliente", "AplicacionU1-Cliente\AplicacionU1-Cliente\AplicacionU1-Cliente.csproj", "{0C79B8B1-A40F-4A70-82BB-26DBF83B6E18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AplicacionU1-Cliente", "AplicacionU1-Cliente\AplicacionU1-Cliente\AplicacionU1-Cliente.csproj", "{0C79B8B1-A40F-4A70-82BB-26DBF83B6E18}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API-seguridad", "API-seguridad\API-seguridad.csproj", "{7ACACCD6-6C14-4816-89A2-924A65890EF7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EjemploApiJWT", "EjemploApiJWT\EjemploApiJWT.csproj", "{26D3DA6F-9B30-41E0-82BD-D66635C39E9B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EjemploClienteWebU3", "EjemploClienteWebU3\EjemploClienteWebU3.csproj", "{63A2DDFE-43A3-40CC-934D-81039DA3F0D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EjemploMovilJwtU3.Android", "EjemploMovilJwtU3\EjemploMovilJwtU3.Android\EjemploMovilJwtU3.Android.csproj", "{3022C55D-5BF6-4423-8E28-182C5C205964}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EjemploMovilJwtU3", "EjemploMovilJwtU3\EjemploMovilJwtU3\EjemploMovilJwtU3.csproj", "{EF5A331C-6496-4066-84C9-5B4DE1426974}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplicacionU2-Cliente.Android", "AplicacionU2-Cliente\AplicacionU2-Cliente.Android\AplicacionU2-Cliente.Android.csproj", "{204F0ED7-2597-4BCC-85DA-621048D66B75}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AplicacionU2-Cliente", "AplicacionU2-Cliente\AplicacionU2-Cliente\AplicacionU2-Cliente.csproj", "{05BFB9D1-1E93-45A4-8290-75C909AA3D1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplicacionU2-ClienteWPF", "AplicacionU2-ClienteWPF\AplicacionU2-ClienteWPF.csproj", "{975DFF1A-E9A3-47A0-9C4E-F7A91688143D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +45,42 @@ Global
 		{0C79B8B1-A40F-4A70-82BB-26DBF83B6E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C79B8B1-A40F-4A70-82BB-26DBF83B6E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C79B8B1-A40F-4A70-82BB-26DBF83B6E18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ACACCD6-6C14-4816-89A2-924A65890EF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ACACCD6-6C14-4816-89A2-924A65890EF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ACACCD6-6C14-4816-89A2-924A65890EF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ACACCD6-6C14-4816-89A2-924A65890EF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26D3DA6F-9B30-41E0-82BD-D66635C39E9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26D3DA6F-9B30-41E0-82BD-D66635C39E9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26D3DA6F-9B30-41E0-82BD-D66635C39E9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26D3DA6F-9B30-41E0-82BD-D66635C39E9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63A2DDFE-43A3-40CC-934D-81039DA3F0D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63A2DDFE-43A3-40CC-934D-81039DA3F0D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63A2DDFE-43A3-40CC-934D-81039DA3F0D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63A2DDFE-43A3-40CC-934D-81039DA3F0D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3022C55D-5BF6-4423-8E28-182C5C205964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3022C55D-5BF6-4423-8E28-182C5C205964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3022C55D-5BF6-4423-8E28-182C5C205964}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3022C55D-5BF6-4423-8E28-182C5C205964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3022C55D-5BF6-4423-8E28-182C5C205964}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3022C55D-5BF6-4423-8E28-182C5C205964}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EF5A331C-6496-4066-84C9-5B4DE1426974}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF5A331C-6496-4066-84C9-5B4DE1426974}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF5A331C-6496-4066-84C9-5B4DE1426974}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF5A331C-6496-4066-84C9-5B4DE1426974}.Release|Any CPU.Build.0 = Release|Any CPU
+		{204F0ED7-2597-4BCC-85DA-621048D66B75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{204F0ED7-2597-4BCC-85DA-621048D66B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{204F0ED7-2597-4BCC-85DA-621048D66B75}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{204F0ED7-2597-4BCC-85DA-621048D66B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{204F0ED7-2597-4BCC-85DA-621048D66B75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{204F0ED7-2597-4BCC-85DA-621048D66B75}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{05BFB9D1-1E93-45A4-8290-75C909AA3D1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05BFB9D1-1E93-45A4-8290-75C909AA3D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05BFB9D1-1E93-45A4-8290-75C909AA3D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05BFB9D1-1E93-45A4-8290-75C909AA3D1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{975DFF1A-E9A3-47A0-9C4E-F7A91688143D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{975DFF1A-E9A3-47A0-9C4E-F7A91688143D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{975DFF1A-E9A3-47A0-9C4E-F7A91688143D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{975DFF1A-E9A3-47A0-9C4E-F7A91688143D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

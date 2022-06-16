@@ -13,9 +13,9 @@ namespace AplicacionU1_API.Controllers
     [ApiController]
     public class RecomendacionesController : ControllerBase
     {
-        public itesrcne_181G0138Context Context { get; }
+        public itesrcne_181g0138Context Context { get; }
         RecomendacionesRepository repos;
-        public RecomendacionesController(itesrcne_181G0138Context context)
+        public RecomendacionesController(itesrcne_181g0138Context context)
         {
             Context = context;
             repos = new(Context);
@@ -51,7 +51,7 @@ namespace AplicacionU1_API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Recomendacione r)
+        public IActionResult Post([FromBody] Recomendaciones r)
         {
             string errores = "";
             if (r == null)
@@ -82,7 +82,7 @@ namespace AplicacionU1_API.Controllers
                 return BadRequest(errores);
         }
         [HttpPut]
-        public IActionResult Put([FromBody] Recomendacione r)
+        public IActionResult Put([FromBody] Recomendaciones r)
         {
             string errores = "";
             var rec = repos.Get(r.Id);

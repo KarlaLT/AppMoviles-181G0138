@@ -1,0 +1,151 @@
+﻿<Window x:Class="AplicacionU2_ClienteWPF.Views.InicioView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AplicacionU2_ClienteWPF.Views"
+        xmlns:vm="clr-namespace:AplicacionU2_ClienteWPF.ViewModels"
+        mc:Ignorable="d"
+       Title="MyCuppon Management" Height="650" Width="800">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Padding" Value="2,0"/>
+        </Style>
+    </Window.Resources>
+    <Window.DataContext>
+        <vm:CuponesViewModel x:Name="vm"></vm:CuponesViewModel>
+    </Window.DataContext>
+    <Grid>
+    <DockPanel>
+        <WrapPanel DockPanel.Dock="Top"  Background="Gold">
+            <StackPanel>
+                <TextBlock DockPanel.Dock="Top" Text="MyCuppon" Background="Gold" Padding="10,10,10,3"
+                  FontSize="30" FontWeight="Bold" TextAlignment="Left"></TextBlock>
+                <TextBlock DockPanel.Dock="Top" Text="Lista de cupones registrados" Background="Gold"
+                   FontSize="15" TextAlignment="Left" Padding="10,0,10,10"></TextBlock>
+            </StackPanel>
+            <Button Command="{Binding VerAgregarCommand}" Height="40" VerticalAlignment="Bottom" Padding="10,5" Margin="400,0,0,10"
+                    Background="Pink" BorderBrush="Fuchsia" FontWeight="Bold">+ Registrar nuevo cupón</Button>
+        </WrapPanel>
+
+
+
+        <TextBlock DockPanel.Dock="Top" FontSize="17" FontWeight="Black"
+                   Foreground="DarkGreen" Margin="0,5,0,0">ALIMENTOS</TextBlock>
+        <ListBox SelectedItem="{Binding Cupon}" ItemsSource="{Binding CuponesAlimentos}" DockPanel.Dock="Top" Background="Transparent">           
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Background="Lime" Margin="5">
+                            <StackPanel.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Eliminar cupón" Command="{Binding Source={x:Reference vm}, Path=VerEliminarCommand}"></MenuItem>
+                                </ContextMenu>
+                            </StackPanel.ContextMenu>
+                            <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Porciento}" FontSize="25" FontWeight="Bold"></TextBlock>
+                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Titulo}"></TextBlock>
+                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Descripcion}"></TextBlock>
+                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Tienda}"></TextBlock>
+                        <TextBlock Padding="10,2" TextWrapping="Wrap" TextAlignment="Center">Válido desde 
+                    <TextBlock Text="{Binding FechaInicio,StringFormat=d}"></TextBlock>
+                            <LineBreak></LineBreak>
+                            <TextBlock>hasta</TextBlock>
+                        <TextBlock Text="{Binding FechaFin,StringFormat=d}"></TextBlock>
+                    </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <TextBlock DockPanel.Dock="Top" FontSize="17" FontWeight="Black"
+                   Foreground="Fuchsia" Margin="0,5,0,0">VESTIMENTA</TextBlock>
+            <ListBox SelectedItem="{Binding Cupon}" ItemsSource="{Binding CuponesVestimenta}" DockPanel.Dock="Top" Background="Transparent">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Background="Fuchsia" Margin="5">
+                            <StackPanel.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Eliminar cupón" Command="{Binding Source={x:Reference vm}, Path=VerEliminarCommand}"></MenuItem>
+                                </ContextMenu>
+                            </StackPanel.ContextMenu>
+                            <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Porciento}" FontSize="25" FontWeight="Bold"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Titulo}"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Descripcion}"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Tienda}"></TextBlock>
+                            <TextBlock Padding="10,2" TextWrapping="Wrap" TextAlignment="Center">Válido desde 
+                    <TextBlock Text="{Binding FechaInicio,StringFormat=d}"></TextBlock>
+                            <LineBreak></LineBreak>
+                            <TextBlock>hasta</TextBlock>
+                        <TextBlock Text="{Binding FechaFin,StringFormat=d}"></TextBlock>
+                    </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+
+
+            <TextBlock DockPanel.Dock="Top" FontSize="17" FontWeight="Black"
+                   Foreground="Blue" Margin="0,5,0,0">ENTRETENIMIENTO Y TECNOLOGÍA</TextBlock>
+            <ListBox SelectedItem="{Binding Cupon}" ItemsSource="{Binding CuponesEntretenimiento}" DockPanel.Dock="Top" Background="Transparent">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Background="CadetBlue" Margin="5">
+                            <StackPanel.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Eliminar cupón" Command="{Binding Source={x:Reference vm}, Path=VerEliminarCommand}"></MenuItem>
+                                </ContextMenu>
+                            </StackPanel.ContextMenu>
+                            <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Porciento}" FontSize="25" FontWeight="Bold"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Titulo}"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Descripcion}"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Tienda}"></TextBlock>
+                            <TextBlock Padding="10,2" TextWrapping="Wrap" TextAlignment="Center">Válido desde 
+                    <TextBlock Text="{Binding FechaInicio,StringFormat=d}"></TextBlock>
+                            <LineBreak></LineBreak>
+                            <TextBlock>hasta</TextBlock>
+                        <TextBlock Text="{Binding FechaFin,StringFormat=d}"></TextBlock>
+                    </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+        </DockPanel>
+
+        <ContentControl>
+            <ContentControl.Resources>
+                <local:AgregarView x:Key="Agregar"></local:AgregarView>
+                <local:EliminarView x:Key="Eliminar"></local:EliminarView>
+            </ContentControl.Resources>
+            <ContentControl.Style>
+                <Style TargetType="ContentControl">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Vista}" Value="{x:Static vm:Vistas.Agregar}">
+                            <Setter Property="Content" Value="{StaticResource Agregar}"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Vista}" Value="{x:Static vm:Vistas.Eliminar}">
+                            <Setter Property="Content" Value="{StaticResource Eliminar}"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+    </Grid>
+</Window>

@@ -5,39 +5,39 @@ using AplicacionU1_API.Models;
 
 namespace AplicacionU1_API.Repositories
 {
-    public class RecomendacionesRepository : Repository<Recomendacione>
+    public class RecomendacionesRepository : Repository<Recomendaciones>
     {
-        public override itesrcne_181G0138Context Context { get; }
+        public override itesrcne_181g0138Context Context { get; }
 
-        public RecomendacionesRepository(itesrcne_181G0138Context context) : base(context)
+        public RecomendacionesRepository(itesrcne_181g0138Context context) : base(context)
         {
             Context = context;
         }
-        public override IEnumerable<Recomendacione> GetAll()
+        public override IEnumerable<Recomendaciones> GetAll()
         {
-            return Context.Set<Recomendacione>().Where(x => x.Eliminado != 1);
+            return Context.Set<Recomendaciones>().Where(x => x.Eliminado != 1);
         }
-        public override Recomendacione Get(object id)
+        public override Recomendaciones Get(object id)
         {
-            var r = Context.Find<Recomendacione>(id);
+            var r = Context.Find<Recomendaciones>(id);
             if (r.Eliminado != 1)
                 return base.Get(id);
             else
                 return null;
         }
-        public override void Insert(Recomendacione entidad)
+        public override void Insert(Recomendaciones entidad)
         {
             entidad.TimeStamp = DateTime.Now;
 
             base.Insert(entidad);
         }
-        public override void Update(Recomendacione entidad)
+        public override void Update(Recomendaciones entidad)
         {
             entidad.TimeStamp = DateTime.Now;
 
             base.Update(entidad);
         }
-        public override void Delete(Recomendacione entidad)
+        public override void Delete(Recomendaciones entidad)
         {
             entidad.Eliminado = 1;
             entidad.TimeStamp = DateTime.Now;
@@ -47,7 +47,7 @@ namespace AplicacionU1_API.Repositories
             int ttl = 30;
             var fechaVencimiento = DateTime.Now.Subtract(TimeSpan.FromDays(ttl));
 
-            var vencidos = Context.Set<Recomendacione>().Where(x => x.Eliminado == 1 && x.TimeStamp < fechaVencimiento);
+            var vencidos = Context.Set<Recomendaciones>().Where(x => x.Eliminado == 1 && x.TimeStamp < fechaVencimiento);
 
             foreach (var item in vencidos)
             {
@@ -57,7 +57,7 @@ namespace AplicacionU1_API.Repositories
         }
         public List<object> GetSinceDate(DateTime date)
         {
-            var noeliminados = Context.Set<Recomendacione>().Where(x => x.Eliminado == 0 && x.TimeStamp >= date).Select(x =>
+            var noeliminados = Context.Set<Recomendaciones>().Where(x => x.Eliminado == 0 && x.TimeStamp >= date).Select(x =>
                   new
                   {
                       x.Id,
@@ -67,7 +67,7 @@ namespace AplicacionU1_API.Repositories
                       x.Opinion,
                       x.Puntuacion
                   });
-            var eliminados = Context.Set<Recomendacione>().Where(x => x.Eliminado == 1 && x.TimeStamp >= date).Select(x =>
+            var eliminados = Context.Set<Recomendaciones>().Where(x => x.Eliminado == 1 && x.TimeStamp >= date).Select(x =>
                   new
                   {
                       x.Id

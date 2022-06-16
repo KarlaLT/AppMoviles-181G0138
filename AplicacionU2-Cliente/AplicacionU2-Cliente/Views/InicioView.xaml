@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AplicacionU2_Cliente.ViewModels"
+             x:Class="AplicacionU2_Cliente.Views.InicioView" Title="MyCuppon" NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <vm:CuponesViewModel x:Name="vm"></vm:CuponesViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Padding" Value="10,70"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout BackgroundColor="Tomato">
+        <Label FontAttributes="Bold" Padding="10" Text="MyCuppon" Margin="0,0,0,0" FontSize="40" BackgroundColor="#B22222" TextColor="White" LineBreakMode="MiddleTruncation" MaxLines="1">
+        </Label>
+        <Label FontSize="Title" TextColor="White" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"
+               Margin="10,20,10,10">Selecciona una categoría:</Label>
+
+        <Button Command="{Binding ElegirCategoriaCommand}" CommandParameter="alimentos"  Margin="10,40,10,10" BackgroundColor="Gold" BorderColor="GreenYellow" Text="Alimentos">
+        </Button>
+        <Button Command="{Binding ElegirCategoriaCommand}"  CommandParameter="vestimenta" BackgroundColor="Fuchsia" BorderColor="HotPink" Text="Vestimenta"></Button>
+        <Button Command="{Binding ElegirCategoriaCommand}"  CommandParameter="entretenimiento" BackgroundColor="LightSeaGreen" BorderColor="LightSeaGreen" Text="Entretenimiento y tecnología"></Button>
+
+        <Label VerticalOptions="EndAndExpand" BackgroundColor="Red" TextColor="White" HorizontalTextAlignment="Center"
+               Padding="0,5">Elaborado por: Karla López</Label>
+    </StackLayout>
+</ContentPage>

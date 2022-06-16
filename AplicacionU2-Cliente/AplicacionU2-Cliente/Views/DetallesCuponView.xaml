@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AplicacionU2_Cliente.Views.DetallesCuponView"
+             xmlns:vm="clr-namespace:AplicacionU2_Cliente.ViewModels"
+              NavigationPage.HasNavigationBar="False">
+ 
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontAttributes" Value="None"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        </Style>
+    </ContentPage.Resources>
+    <Grid>
+    <ScrollView>
+        <StackLayout BackgroundColor="#F0E68C">
+            <Label FontAttributes="Bold" Text="Detalles de oferta" Margin="0,0,0,0" FontSize="40" BackgroundColor="Tomato" TextColor="White" LineBreakMode="MiddleTruncation" MaxLines="1">
+                </Label>
+            <Frame Margin="15" BackgroundColor="#D8BFD8" CornerRadius="15" BorderColor="Yellow">
+            <StackLayout>
+                <Label >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="¡"></Span>
+                                    <Span Text="{Binding Cupon.Titulo}"></Span>
+                                    <Span>!</Span>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                <Label Text="{Binding Cupon.Descripcion}"></Label>
+                <Label >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="{Binding Cupon.Porciento}"></Span>
+                                    <Span>%</Span>
+                                    <Span Text=" de descuento!!"></Span>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                <Label >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="Disponible sólo en "></Span>
+                                    <Span Text="{Binding Cupon.Tienda}"></Span>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                </Label>
+                <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="Válido desde "></Span>
+                                        <Span Text="{Binding Cupon.FechaInicio, StringFormat='{0:MMMM dd, yyyy}'}"></Span>
+                                    <Span Text=" hasta "></Span>
+                                        <Span Text="{Binding Cupon.FechaFin, StringFormat='{0:MMMM dd, yyyy}'}"></Span>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+
+            </StackLayout>
+        </Frame>
+        <Image Source="iconoNotif.png" HeightRequest="250" Margin="0"></Image>
+        </StackLayout>
+    </ScrollView>
+
+        <Button Command="{Binding RegresarInicioCommand}" Text="&#10550;" WidthRequest="80" HeightRequest="80" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"
+               CornerRadius="100" Margin="0,0,15,35" BackgroundColor="Tomato" FontSize="50"
+                FontAttributes="Bold" TextColor="White" BorderColor="White" BorderWidth="5"></Button>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AplicacionU2_Cliente.ViewModels"
+             x:Class="AplicacionU2_Cliente.Views.CuponesPorCategoriaView" NavigationPage.HasNavigationBar="False"
+            >
+    <ContentPage.BindingContext>
+        <vm:CuponesViewModel x:Name="vmc"></vm:CuponesViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="Black"/>
+            
+        </Style>
+    </ContentPage.Resources>
+    <Grid>
+    <StackLayout>
+        <StackLayout Orientation="Horizontal" BackgroundColor="Tomato">
+            <Label TextColor="White" LineBreakMode="MiddleTruncation" MaxLines="1">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="Cupones de "></Span>
+                            <Span Text="{Binding Categoria}"></Span>
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+        <ScrollView>       
+            <CollectionView Margin="10" ItemsSource="{Binding Cupones}" SelectionMode="Single" SelectedItem="{Binding Cupon}">
+            <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <SwipeView>
+                                    <SwipeView.RightItems>
+                                        <SwipeItems>
+                                            <SwipeItem Text="Ver detalles"
+                       IconImageSource="detalles.png" Command="{Binding Source={x:Reference vmc}, Path=VerDetallesCommand}" 
+                                                       CommandParameter="{Binding .}"
+                       BackgroundColor="LightGreen">
+                                            </SwipeItem>
+                                        </SwipeItems>
+                                        
+                                    </SwipeView.RightItems>
+                                    <Frame BackgroundColor="Yellow" BorderColor="YellowGreen" CornerRadius="10"  Padding="10">
+                                 
+                                        <Grid HeightRequest="126">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="90"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="comic.png" Grid.Column="0" Grid.RowSpan="3" WidthRequest="160" HeightRequest="120"></Image>
+                                        <Label VerticalTextAlignment="Center" FontFamily="Net" HorizontalTextAlignment="Center"
+                      FontSize="30" Padding="0,5,0,0"  Grid.Column="0" Grid.RowSpan="3"  >
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <FormattedString.Spans>
+                                                        <Span Text="{Binding Porciento}"></Span>
+                                                        <Span>%</Span>
+                                                    </FormattedString.Spans>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="0">
+                                            <Label FontSize="25" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Row="0" 
+                           Padding="0,8"
+                      LineBreakMode="WordWrap" FontFamily="Net" Grid.Column="1" >
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <FormattedString.Spans>
+                                                            <Span>¡</Span>
+                                                            <Span Text="{Binding Titulo}"></Span>
+                                                            <Span>!</Span>
+                                                        </FormattedString.Spans>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <Image VerticalOptions="Center" Source="cupon.png" WidthRequest="50" ></Image>
+                                        </StackLayout>
+                                        <Label BackgroundColor="Tomato" TextColor="White" FontSize="15" Padding="10,3" HorizontalTextAlignment="End" 
+                      VerticalTextAlignment="Center"  Grid.Row="1"  Grid.Column="1" >
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <FormattedString.Spans>
+                                                            <Span Text="Disponible en "></Span>
+                                                            <Span Text="{Binding Tienda}"></Span>
+                                                        </FormattedString.Spans>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                        </Label>
+                                    </Grid>
+                                </Frame>
+                                </SwipeView>
+
+                                <Label Text="Hola" FontSize="5" Padding="0" Margin="0" TextColor="White"></Label>
+
+                            </StackLayout>                          
+                        </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        </ScrollView>
+
+        <Label FontSize="13" BackgroundColor="Red" TextColor="White" Padding="0,4" 
+               HorizontalTextAlignment="Center" VerticalOptions="EndAndExpand">Desliza sobre los cupones para más información</Label>
+    </StackLayout>
+        <Button Command="{Binding RegresarInicioCommand}" Text="&#10550;" WidthRequest="80" HeightRequest="80" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"
+               CornerRadius="100" Margin="0,0,15,35" BackgroundColor="Tomato" FontSize="50"
+                FontAttributes="Bold" TextColor="White" BorderColor="White" BorderWidth="5"></Button>
+    </Grid>
+    
+</ContentPage>
