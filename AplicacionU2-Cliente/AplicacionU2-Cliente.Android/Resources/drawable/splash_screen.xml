@@ -3,8 +3,9 @@
   <item>
     <color android:color="@color/splash_background"></color>
   </item>
-  <item android:width="@dimen/abc_dialog_fixed_width_minor">
-    <bitmap android:src="@drawable/cupon" android:tileMode="disabled"
-            android:gravity="center"></bitmap>
+  <item >
+    <bitmap android:src="@drawable/cupon" android:tileMode="disabled" android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+            android:gravity="clip_horizontal" ></bitmap>
   </item>
 </layer-list>
