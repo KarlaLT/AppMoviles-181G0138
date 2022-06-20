@@ -18,13 +18,14 @@ namespace AplicacionU1_API.Models
         }
 
         public virtual DbSet<Cupones> Cupones { get; set; }
+        public virtual DbSet<Partidas> Partidas { get; set; }
         public virtual DbSet<Recomendaciones> Recomendaciones { get; set; }
+        public virtual DbSet<Usuarios> Usuarios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-               // optionsBuilder.UseMySql("server=204.93.216.11;user=itesrcne_karla;password=181G0138;database=itesrcne_181g0138", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.3.29-mariadb"));
             }
         }
 
@@ -62,6 +63,33 @@ namespace AplicacionU1_API.Models
                     .HasMaxLength(60);
             });
 
+            modelBuilder.Entity<Partidas>(entity =>
+            {
+                entity.HasKey(e => e.IdPartida)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("partidas");
+
+                entity.HasIndex(e => e.FkIdUsuario, "fk_usuario_partida_idx");
+
+                entity.Property(e => e.IdPartida)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("idPartida");
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.FkIdUsuario)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("fkIdUsuario");
+
+                entity.Property(e => e.Puntuacion).HasColumnType("int(11)");
+
+                entity.HasOne(d => d.FkIdUsuarioNavigation)
+                    .WithMany(p => p.Partidas)
+                    .HasForeignKey(d => d.FkIdUsuario)
+                    .HasConstraintName("fk_usuario_partida");
+            });
+
             modelBuilder.Entity<Recomendaciones>(entity =>
             {
                 entity.ToTable("recomendaciones");
@@ -89,6 +117,28 @@ namespace AplicacionU1_API.Models
                 entity.Property(e => e.TituloLibro)
                     .IsRequired()
                     .HasMaxLength(60);
+            });
+
+            modelBuilder.Entity<Usuarios>(entity =>
+            {
+                entity.HasKey(e => e.IdUsuario)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("usuarios");
+
+                entity.Property(e => e.IdUsuario)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("idUsuario");
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(45)
+                    .HasColumnName("password");
+
+                entity.Property(e => e.Username)
+                    .IsRequired()
+                    .HasMaxLength(45)
+                    .HasColumnName("username");
             });
 
             OnModelCreatingPartial(modelBuilder);

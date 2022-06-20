@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AplicacionU3U4_Cliente.Views.RegistrarView" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="Padding" Value="10,3"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BackgroundColor" Value="White"/>
+            <Setter Property="Margin" Value="30,10"/>
+            <Setter Property="PlaceholderColor" Value="LightGray"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="ReturnType" Value="Next"/>
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout BackgroundColor="#90EE90">
+        <StackLayout BackgroundColor="#9370DB" Padding="10">
+            <Label Text="Aprender jugando" FontSize="30" FontAttributes="Bold"></Label>
+            <Label Text="Registrarme"></Label>
+        </StackLayout>
+        <Image Source="imgsplash.png" Aspect="AspectFit" HeightRequest="300" Margin="0,20,0,0"></Image>
+        <StackLayout Margin="0,50,0,0">
+            <Entry Text="{Binding Usuario.username}" Placeholder="Usuario"></Entry>
+            <Entry Text="{Binding Usuario.password}" IsPassword="True" Placeholder="Contraseña"></Entry>
+        </StackLayout>
+        <Button Command="{Binding RegistrarmeCommand}"  Text="Guardar" Margin="100,10" BackgroundColor="#FFB6C1" BorderColor="#DDA0DD" BorderWidth="1"
+                    TextColor="White"></Button>
+
+        <Button Command="{Binding CancelarCommand}" Text="Cancelar" Margin="100,5" BackgroundColor="#4682B4" BorderColor="#5F9EA0" BorderWidth="1"
+                    TextColor="White"></Button>
+        <Label Text="{Binding Error}" FontSize="18" TextColor="Red" HorizontalTextAlignment="Center" Margin="10"></Label>
+
+    </StackLayout>
+</ContentPage>

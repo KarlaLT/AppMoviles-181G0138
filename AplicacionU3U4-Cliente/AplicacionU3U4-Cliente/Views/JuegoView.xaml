@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AplicacionU3U4_Cliente.ViewModels"
+             x:Class="AplicacionU3U4_Cliente.Views.JuegoView" NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <vm:JuegoViewModel></vm:JuegoViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10,5"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="BorderColor" Value="DimGray"/>
+            <Setter Property="BorderWidth" Value="2"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Image Source="fondoInicio.png" Aspect="Fill"></Image>
+        <ScrollView>
+        <StackLayout Margin="80,10,20,0">
+            <Label FontAttributes="Bold" TextColor="LightSlateGray" Text="Aprender jugando" FontSize="35" HorizontalTextAlignment="Center" TextTransform="Uppercase"></Label>
+            <Label Text="Resuelve el mayor número de multiplicaciones posibles en 30 segundos." 
+                   FontSize="18" Margin="10,15,10,0" TextColor="Red" FontAttributes="Bold" HorizontalTextAlignment="Center"
+                    ></Label>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10,0,0">
+                <Button Command="{Binding IniciarJuegoCommand}" BackgroundColor="HotPink" Text="Iniciar"></Button>
+                <Button Command="{Binding VerTablaPartidasCommand}" BackgroundColor="HotPink" Text="Registro de partidas"></Button>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10,0,20">
+                <Frame Margin="0,0,10,0" BackgroundColor="Yellow" WidthRequest="70" HeightRequest="70" CornerRadius="100">
+                        <Label Text="{Binding Numero1}" FontSize="60" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                </Frame>
+                <Image Margin="10,0,10,0" Source="multip.png" HeightRequest="55"></Image>
+                <Frame Margin="10,0,0,0" BackgroundColor="LightGreen" WidthRequest="70" HeightRequest="70" CornerRadius="100">
+                        <Label Text="{Binding Numero2}" FontSize="60" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    </Frame>
+            </StackLayout>
+
+            <StackLayout>
+                <Label FontSize="25" Margin="10,10,0,10" FontAttributes="Bold">Tu resultado aquí:</Label>
+                <Entry HorizontalTextAlignment="Center" Text="{Binding Respuesta}" ReturnCommand="{Binding EnviarRespuestaCommand}" BackgroundColor="White" HeightRequest="40" Margin="10" ></Entry>
+                <Button IsEnabled="{Binding Bloqueo}" Command="{Binding EnviarRespuestaCommand}" Text="Enviar" BackgroundColor="CadetBlue" TextColor="White" 
+                        HorizontalOptions="Center" Padding="50,0"></Button>
+            </StackLayout>
+            
+            <Frame HorizontalOptions="Center" BackgroundColor="Blue" WidthRequest="70" HeightRequest="70" CornerRadius="100">
+                    <Label Text="{Binding SegundosRestantes}" TextColor="White" FontSize="60" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                </Frame>
+
+            <Button Text="Quiero más tiempo" BackgroundColor="MediumPurple" TextColor="White"                         HorizontalOptions="Start" Padding="20,0" Margin="10,10,0,10"></Button>
+            <Button Command="{Binding LogoutCommand}" Text="Cerrar sesión" BackgroundColor="Tomato" TextColor="White"                          HorizontalOptions="Start" Padding="10,0" Margin="10,10,0,10"></Button>
+
+                <Label TextColor="red" HorizontalTextAlignment="Center" FontSize="18" FontAttributes="Bold"
+                       Text="{Binding Error}"></Label>
+        </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

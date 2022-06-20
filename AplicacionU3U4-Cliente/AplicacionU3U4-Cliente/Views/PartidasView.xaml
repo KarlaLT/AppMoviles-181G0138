@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
+             x:Class="AplicacionU3U4_Cliente.Views.PartidasView" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </ContentPage.Resources>
+    <Grid>
+        
+        
+    <StackLayout>
+        <Label  FontSize="35" Padding="10" BackgroundColor="DarkTurquoise" 
+               TextColor="White">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="Registro de partidas de "></Span>
+                            <Span Text="{Binding Usuario.username}"></Span>
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+        </Label>
+            <Frame VerticalOptions="StartAndExpand" Padding="0"  Margin="10" HeightRequest="70" >
+                <controls:MTAdView Margin="0" Background="White" HeightRequest="70" IsEnabled="True" IsVisible="True" x:Name="MisAds"
+                                   AdsId="ca-app-pub-2238878027553821/4439498727"/>
+            </Frame>
+
+            <ScrollView VerticalOptions="StartAndExpand">
+       
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                <Label Grid.Row="0"  FontAttributes="Bold" Text="Puntuación obtenida"></Label>
+                    <Label Grid.Row="0"  FontAttributes="Bold" Text="Fecha en que jugaste" Grid.Column="1"></Label>
+                    <Label Grid.Row="0"  Padding="0,12,0,10" Text="_______________________________________________" MaxLines="1" LineBreakMode="NoWrap" Grid.ColumnSpan="2"></Label>
+
+                <CollectionView Grid.ColumnSpan="2" Grid.Row="1" Margin="10,0"  ItemsSource="{Binding ListaPartidas}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Puntuacion}" VerticalTextAlignment="Center" BackgroundColor="Pink" ></Label>
+                                    <Label  Grid.Column="1" VerticalTextAlignment="Center" Text="{Binding Fecha, StringFormat='{0:dd/MMM/yy hh:mm tt}'}" BackgroundColor="Yellow"  ></Label>
+
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                </Grid>
+            </ScrollView>
+        
+          </StackLayout>
+        
+        
+        <Button Command="{Binding CancelarCommand}" Text="&#10550;" WidthRequest="80" HeightRequest="80" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"
+               CornerRadius="100" Margin="0,0,15,35   " BackgroundColor="Tomato" FontSize="50"
+                FontAttributes="Bold" TextColor="White" BorderColor="White" BorderWidth="5"></Button>
+
+    </Grid>
+</ContentPage>
