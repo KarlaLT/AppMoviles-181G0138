@@ -49,7 +49,7 @@
                     <Label Text="{Binding SegundosRestantes}" TextColor="White" FontSize="60" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                 </Frame>
 
-            <Button Text="Quiero más tiempo" BackgroundColor="MediumPurple" TextColor="White"                         HorizontalOptions="Start" Padding="20,0" Margin="10,10,0,10"></Button>
+            <Button Command="{Binding AgregarTiempoCommand}" Text="Quiero más tiempo" BackgroundColor="MediumPurple" TextColor="White"                         HorizontalOptions="Start" Padding="20,0" Margin="10,10,0,10"></Button>
             <Button Command="{Binding LogoutCommand}" Text="Cerrar sesión" BackgroundColor="Tomato" TextColor="White"                          HorizontalOptions="Start" Padding="10,0" Margin="10,10,0,10"></Button>
 
                 <Label TextColor="red" HorizontalTextAlignment="Center" FontSize="18" FontAttributes="Bold"

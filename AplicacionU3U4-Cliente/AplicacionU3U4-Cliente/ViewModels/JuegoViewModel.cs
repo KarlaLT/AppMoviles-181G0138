@@ -38,6 +38,7 @@ namespace AplicacionU3U4_Cliente.ViewModels
             LogoutCommand = new Command(Logout);
             IniciarJuegoCommand = new Command(EmpezarJuego);
             EnviarRespuestaCommand = new Command(EnviarRespuesta);
+            AgregarTiempoCommand = new Command(AgregarTiempo);
             Usuario = new LoginData();
 
             timer.Elapsed += Timer_Elapsed;
@@ -102,6 +103,7 @@ namespace AplicacionU3U4_Cliente.ViewModels
         public Command IniciarJuegoCommand { get; set; }
         public Command EnviarRespuestaCommand { get; set; }
         public Command VerTablaPartidasCommand { get; set; }
+        public Command AgregarTiempoCommand { get; set; }
 
         //vistas
         RegistrarView registrarView;
@@ -348,7 +350,7 @@ namespace AplicacionU3U4_Cliente.ViewModels
                 {
                     //hacer login con el nuevo usuario registrado
                     //al registrar un nuevo usuario la api tmb debe de devolver un token
-                  
+
                     var token = await result.Content.ReadAsStringAsync();
                     App.User.LogIn(token);
                     App.User.Redirect();
@@ -366,8 +368,11 @@ namespace AplicacionU3U4_Cliente.ViewModels
         //vídeo reward
         public void AgregarTiempo()
         {
-            if (CrossMTAdmob.Current.IsRewardedVideoLoaded())
-                CrossMTAdmob.Current.ShowRewardedVideo();
+            if (timer.Enabled)
+            {
+                if (CrossMTAdmob.Current.IsRewardedVideoLoaded())
+                    CrossMTAdmob.Current.ShowRewardedVideo();
+            }
         }
     }
 }

@@ -361,3 +361,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/API-seguridad
+/AplicacionU3-ClienteMovil
+/EjemploApiJWT
+/EjemploClienteWebU3
+/EjemploMovilJwtU3
