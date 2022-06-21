@@ -24,12 +24,11 @@ namespace AplicacionU3U4_Cliente.ViewModels
         public JuegoViewModel()
         {
             //cargar vídeo de anuncio interstitial
-            CrossMTAdmob.Current.LoadInterstitial("ca-app-pub-2238878027553821/2528447412");
+            CrossMTAdmob.Current.LoadInterstitial("ca-app-pub-3940256099942544/1033173712");
             //cargar vídeo reward
-            CrossMTAdmob.Current.LoadRewardedVideo("ca-app-pub-2238878027553821/4781445357");
+            CrossMTAdmob.Current.LoadRewardedVideo("ca-app-pub-3940256099942544/5224354917");
 
-            CrossMTAdmob.Current.OnRewardedVideoAdCompleted += Current_OnRewardedVideoAdCompleted;
-
+            CrossMTAdmob.Current.OnRewardedVideoAdClosed += Current_OnRewardedVideoAdClosed;
             LoginCommand = new Command(Login);
             VerRegistrarmeCommand = new Command(VerRegistrarme);
             RegistrarmeCommand = new Command(Registrarme);
@@ -43,13 +42,17 @@ namespace AplicacionU3U4_Cliente.ViewModels
 
             timer.Elapsed += Timer_Elapsed;
             Bloqueo = false;
+            BloqueoReward = false;
         }
 
-        private void Current_OnRewardedVideoAdCompleted(object sender, EventArgs e)
-        {//si el vídeo de reward terminó, se agregan 10 seg a la partida
+        private void Current_OnRewardedVideoAdClosed(object sender, EventArgs e)
+        {
+            //si el vídeo de reward terminó, se agregan 10 seg a la partida
             SegundosRestantes += 10;
+            timer.Start();
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
         }
+              
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
@@ -78,6 +81,13 @@ namespace AplicacionU3U4_Cliente.ViewModels
         {
             get { return bloqueo; }
             set { bloqueo = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null)); }
+        }
+        private bool bloqueoReward;
+
+        public bool BloqueoReward
+        {
+            get { return bloqueoReward; }
+            set { bloqueoReward = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null)); }
         }
 
         public void EnviarRespuesta()
@@ -291,7 +301,7 @@ namespace AplicacionU3U4_Cliente.ViewModels
             Partida = new Partidas()
             {
                 Puntuacion = Puntuacion,
-                Fecha = DateTime.Now,
+                Fecha = DateTime.UtcNow,
                 FkIdUsuario = int.Parse(id)
             };
             var json = JsonConvert.SerializeObject(Partida);
@@ -323,6 +333,7 @@ namespace AplicacionU3U4_Cliente.ViewModels
             timer.Interval = 1000;
             timer.Start();
             Bloqueo = true;
+            BloqueoReward = true;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
         }
 
@@ -371,7 +382,11 @@ namespace AplicacionU3U4_Cliente.ViewModels
             if (timer.Enabled)
             {
                 if (CrossMTAdmob.Current.IsRewardedVideoLoaded())
+                {
+                    timer.Stop();
                     CrossMTAdmob.Current.ShowRewardedVideo();
+                    BloqueoReward = false;
+                }
             }
         }
     }

@@ -27,7 +27,7 @@
         </Label>
             <Frame VerticalOptions="StartAndExpand" Padding="0"  Margin="10" HeightRequest="70" >
                 <controls:MTAdView Margin="0" Background="White" HeightRequest="70" IsEnabled="True" IsVisible="True" x:Name="MisAds"
-                                   AdsId="ca-app-pub-2238878027553821/4439498727"/>
+                                   AdsId="ca-app-pub-3940256099942544/6300978111"/>
             </Frame>
 
             <ScrollView VerticalOptions="StartAndExpand">
